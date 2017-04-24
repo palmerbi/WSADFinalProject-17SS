@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WSAD_app1.Models.ViewModels.ShoppingCart.ShoppingCartViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Select other classes", "index", "Course")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Course Name
+        </th>
+        <th>
+            Teacher
+        </th>
+        <th>Course ID</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", "ShoppingCart", new { courseId = item.CourseId, userId = item.UserId }, null)
+        </td>
+    </tr>
+}
+
+</table>

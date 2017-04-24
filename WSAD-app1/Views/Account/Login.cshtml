@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@Html.ValidationSummary();
+
+@if(TempData["LogoutMessage"] != null)
+{
+    <div class="alert - alert-warning">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        @TempData["LogoutMessage"]
+    </div>
+}
+<form method="post" action="/Account/Login">
+    <legend>Login Page</legend>
+    <label>Username: </label><input type="text" name="username" /> <br />
+    <label>Password: </label><input type="password" name="password" /> <br />
+
+    <label>Remember Me</label><input type="checkbox" value="true" name="rememeberme" /><br />
+
+    <button type="submit" name="login">Log In</button>
+    <a href="/Account/Create">Create an account</a>
+</form>
